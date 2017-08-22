@@ -14,7 +14,7 @@ exports.register = (server, options, next) => {
       validate: {
         payload: {
           name: Joi.string(),
-          cron: Joi.string(),
+          // cron: Joi.string(),
           type: Joi.string(),
           key: Joi.string(),
           secret: Joi.string(),

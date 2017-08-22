@@ -22,7 +22,7 @@ const profileSchema = new Schema({
     },
     cron: {
         type: String,
-        require: true,
+        require: false,
     },
     createdAt: {
         type: Date,
