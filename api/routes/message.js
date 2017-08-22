@@ -13,8 +13,8 @@ exports.register = (server, options, next) => {
       handler: MessageHandler.schedule,
       validate: {
         payload: {
-          profile: Joi.string(),
-          content: Joi.string(),
+          profile: Joi.string().alphanum().required(),
+          content: Joi.string().required(),
         },
       },
     },

@@ -18,19 +18,19 @@ class FacebookJob {
 
 
           graph.post(`${profile.page_id}/feed`, post, function(err, res) {
-            if(err)
+            if(err) {
               console.log(err);
-            else
+	    }
+            else {
               // returns the post id
-              console.log(res); // { id: xxxxx}
+              // set 'sent' value to true
+              MessageModel.edit(message._id, {sent: true})
+              .catch(() => {
+                console.log("Failed to edit message");
+              });
+              console.log(res); 
+	    }
           });
-
-
-          // set 'sent' value to true
-          MessageModel.edit(message._id, {sent: true})
-                      .catch(() => {
-                        console.log("Failed to edit message");
-                      });
         }else {
           console.log("No messages found");
         }

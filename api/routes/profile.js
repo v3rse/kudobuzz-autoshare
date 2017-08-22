@@ -13,11 +13,11 @@ exports.register = (server, options, next) => {
       handler: ProfileHandler.create,
       validate: {
         payload: {
-          name: Joi.string(),
+          name: Joi.string().alphanum().min(3).max(30).required(),
           cron: Joi.string(),
-          type: Joi.string(),
-          token: Joi.string(),
-          page_id: Joi.string(),
+          type: Joi.string().alphanum().min(3).max(30).required(),
+          token: Joi.string().required(),
+          page_id: Joi.string().required(),
         },
       },
     },
