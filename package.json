@@ -15,6 +15,7 @@
   "dependencies": {
     "@v3rse/chroma": "^1.1.0",
     "boom": "^5.2.0",
+    "fbgraph": "^1.4.1",
     "glob": "^7.1.2",
     "hapi": "^16.5.2",
     "hapi-swagger": "^7.7.1",

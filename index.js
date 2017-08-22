@@ -2,6 +2,7 @@ const chroma = require('@v3rse/chroma');
 const schedule = require('node-schedule');
 
 const server = require('./api');
+const FacebookJob = require('./jobs/facebook.js');
 const ProfileModel = require('./api/model').getModel('profile');
 
 // Setup jobs
@@ -11,9 +12,10 @@ ProfileModel.getAll()
   .then((data) => {
     data.forEach((profile) => {
       // default daily run
+      const fbj = new FacebookJob();
       const cron = profile.cron || '0 0 0 * * *';
-      const job  = schedule.scheduleJob(cron, () => {
-        console.log(`Just run: ${profile.name}`);
+      const job  = schedule.scheduleJob(cron, function (){
+        fbj.runPostJob(profile);
       });
     });
   })

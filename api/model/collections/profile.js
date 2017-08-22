@@ -12,11 +12,11 @@ const profileSchema = new Schema({
       type: String,
       required: true,
     },
-    key: {
+    token: {
         type: String,
         required: true,
     },
-    secret: {
+    page_id: {
         type: String,
         required: true,
     },

@@ -32,5 +32,23 @@ const messageSchema = new Schema({
 const Message = mongoose.model('message', messageSchema);
 const MessageModel = BaseModel(Message);
 
+MessageModel.getBySendStatusAndProfile = profileId => new Promise((resolve, reject) => {
+  Message
+        .find({
+          profile: profileId,
+          sent: false,
+        })
+        .sort({createdAt: 1})
+        .limit(1)
+        .select({content: 1})
+        .exec((err, data) => {
+          if (err) {
+            reject(err);
+          }
+
+          resolve(data);
+        });
+});
+
 
 module.exports = MessageModel;
