@@ -3,12 +3,10 @@ Forwards messages to social media networks
 
 # Requirements
 - A valid Facebook token for the page or account.
-- A MongoDB instance `3.0` or above.
+- A MongoDB instance `2.6` or above.
 
 # Build/Run instructions
 ## Set up
-
-```
 
 - Clone the repository
 
