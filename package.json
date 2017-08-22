@@ -1,0 +1,26 @@
+{
+  "name": "kudobuzz-autoshare",
+  "version": "1.0.0",
+  "description": "Autoshare RESTful API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "messaging"
+  ],
+  "author": "Nana Adane",
+  "license": "MIT",
+  "dependencies": {
+    "@v3rse/chroma": "^1.1.0",
+    "boom": "^5.2.0",
+    "glob": "^7.1.2",
+    "hapi": "^16.5.2",
+    "hapi-swagger": "^7.7.1",
+    "inert": "^4.2.1",
+    "joi": "^10.6.0",
+    "mongoose": "^4.11.7",
+    "vision": "^4.1.1"
+  }
+}
