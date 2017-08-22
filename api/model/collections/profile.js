@@ -8,6 +8,10 @@ const profileSchema = new Schema({
       type: String,
       required: true,
     },
+    type: {
+      type: String,
+      required: true,
+    },
     key: {
         type: String,
         required: true,
@@ -15,6 +19,10 @@ const profileSchema = new Schema({
     secret: {
         type: String,
         required: true,
+    },
+    cron: {
+        type: String,
+        require: true,
     },
     createdAt: {
         type: Date,
