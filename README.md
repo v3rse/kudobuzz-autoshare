@@ -1,4 +1,4 @@
-# kudobuzz-autosave
+# kudobuzz-autoshare
 Forwards messages to social media networks
 
 # Requirements
