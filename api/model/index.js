@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const glob = require('glob');
 const path = require('path');
+const Mockgoose = require('mockgoose').Mockgoose;
 
 mongoose.Promise = global.Promise;
 const dbUrl = process.env.MONGODB || 'mongodb://localhost:27017/kudobuzz-autoshare';
@@ -14,13 +15,23 @@ glob.sync('collections/*.js', {
   Models[file.replace('collections/', '').replace('.js', '')] = require(`${modelPath}`);
 });
 
-
-
-mongoose.connect(dbUrl,{ useMongoClient: true }, (mongooseErr) => {
-    if (mongooseErr) {
-      throw mongooseErr;
-    }
-});
+// test config
+if (process.env.NODE_ENV === 'test') {
+  const mockgoose = new Mockgoose(mongoose);
+  mockgoose.prepareStorage().then(() => {
+    mongoose.connect(dbUrl, { useMongoClient: true }, (err) => {
+      if (err) {
+        throw err;
+      }
+    });
+  });
+} else {
+  mongoose.connect(dbUrl, { useMongoClient: true }, (mongooseErr) => {
+      if (mongooseErr) {
+	throw mongooseErr;
+      }
+  });
+}
 
 
 function getModel(modelName) {

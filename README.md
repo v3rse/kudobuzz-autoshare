@@ -28,6 +28,12 @@ npm install
 ```bash
 npm start
 ```
+- Run as dev
+
+```bash
+npm run dev
+```
+
 - Hit [`localhost:3000/documentation`](http://localhost:3000/documentation)
 - Use the `/profile/create` path to register a social profile
   - Find a facebook example below
@@ -54,3 +60,11 @@ npm start
   ```
 
   where `profile` is the above profile id.
+
+## Test
+
+- Run tests
+
+```bash
+npm test
+```

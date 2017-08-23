@@ -28,3 +28,5 @@ server.start((serverStartErr) => {
   }
   console.log(chroma.underline.lgreen(`Server started at ${chroma.lyellow(server.info.uri)}`));
 });
+
+module.exports = server;
